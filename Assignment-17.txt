@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <math.h>
+long long factorial(int n) {
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+int main() {
+    int n, i;
+    double x, sum = 0.0;
+    printf("Enter the angle in radians: ");
+    scanf("%lf", &x);
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+    for (i = 0; i < n; i++) {
+        int power = 2 * i + 1;  // Odd powers
+        double term = pow(x, power) / factorial(power);
+        if (i % 2 == 0) {
+            sum += term;  // Positive terms
+        } else {
+            sum -= term;  // Negative terms
+        }
+    }
+    printf("Sum of sine series up to %d terms = %lf\n", n, sum);
+    printf("Actual sin(%lf) = %lf\n", x, sin(x));
+    return 0;
+}
