@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    long long binary;
+    int decimal = 0, base = 1, rem;
+
+    // Input binary number
+    printf("Enter a binary number: ");
+    scanf("%lld", &binary);
+
+    // Conversion process
+    while (binary > 0) {
+        rem = binary % 10;          // Extract last digit
+        decimal += rem * base;      // Add to decimal value
+        base *= 2;                  // Increase base (powers of 2)
+        binary /= 10;               // Remove last digit
+    }
+
+    printf("Decimal equivalent: %d\n", decimal);
+    return 0;
+}
