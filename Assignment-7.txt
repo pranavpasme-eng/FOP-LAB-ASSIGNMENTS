@@ -1,0 +1,36 @@
+#include <stdio.h>
+struct Student {
+    int rollNo;
+    char name[50];
+    float marks;
+};
+int main() {
+    int n, i;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+    struct Student s[n];  // Array of structures
+    for (i = 0; i < n; i++) {
+        printf("\nEnter details of student %d:\n", i + 1);
+        printf("Roll No: ");
+        scanf("%d", &s[i].rollNo);
+        printf("Name: ");
+        scanf("%s", s[i].name);
+        printf("Marks: ");
+        scanf("%f", &s[i].marks);
+    }
+    printf("\n--- Student Results ---\n");
+    for (i = 0; i < n; i++) {
+        printf("Roll No: %d\n", s[i].rollNo);
+        printf("Name   : %s\n", s[i].name);
+        printf("Marks  : %.2f\n", s[i].marks);
+
+        if (s[i].marks >= 40)
+            printf("Result : PASS\n");
+        else
+            printf("Result : FAIL\n");
+
+        printf("-----------------------\n");
+    }
+
+    return 0;
+}
