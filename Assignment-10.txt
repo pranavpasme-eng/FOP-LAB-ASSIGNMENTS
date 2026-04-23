@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+long long fact(int n){long long f=1;for(int i=1;i<=n;i++)f*=i;return f;}
+int main(){
+    int ch; double x,y;
+    do{
+        printf("\n1.Add 2.Sub 3.Mul 4.Div 5.Pow 6.Fact 7.Exit\nChoice: ");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1: scanf("%lf%lf",&x,&y); printf("=%.2lf\n",x+y); break;
+            case 2: scanf("%lf%lf",&x,&y); printf("=%.2lf\n",x-y); break;
+            case 3: scanf("%lf%lf",&x,&y); printf("=%.2lf\n",x*y); break;
+            case 4: scanf("%lf%lf",&x,&y); if(y)printf("=%.2lf\n",x/y); else printf("Err Div0\n"); break;
+            case 5: scanf("%lf%lf",&x,&y); printf("=%.2lf\n",pow(x,y)); break;
+            case 6: scanf("%lf",&x); if(x>=0 && floor(x)==x) printf("=%lld\n",fact((int)x)); else printf("Err\n"); break;
+            case 7: printf("Bye\n"); break;
+            default: printf("Invalid\n");
+        }
+    }while(ch!=7);
+    return 0;
+}
