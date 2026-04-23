@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+struct EMPLOYEE {
+    char name[50], designation[50], gender[10], doj[15];
+    float salary;
+};
+int main() {
+    struct EMPLOYEE e[100];
+    int n, i, male=0, female=0;
+    printf("Enter number of employees: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++) {
+        printf("\nEmployee %d details:\n",i+1);
+        scanf("%s %s %s %s %f", e[i].name, e[i].designation, e[i].gender, e[i].doj, &e[i].salary);
+        if(strcasecmp(e[i].gender,"male")==0) male++;
+        else if(strcasecmp(e[i].gender,"female")==0) female++;
+    }
+    printf("\nTotal Employees = %d\n", n);
+    printf("Male = %d, Female = %d\n", male, female);
+    printf("Employees with salary > 10000:\n");
+    for(i=0;i<n;i++) if(e[i].salary>10000) printf("%s\n", e[i].name);
+    printf("Employees with designation Asst Manager:\n");
+    for(i=0;i<n;i++) if(strcasecmp(e[i].designation,"AsstManager")==0 || strcasecmp(e[i].designation,"Asst")==0)
+        printf("%s\n", e[i].name);
+    return 0;
+}
