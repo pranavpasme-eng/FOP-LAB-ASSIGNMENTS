@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main() {
+    float basic, gross, net;
+    printf("Enter Basic Pay: ");
+    scanf("%f", &basic);
+    gross = basic + 0.10*basic + 0.05*basic;   // Basic + HRA + TA
+    net   = gross - 0.02*gross;                // Deduct 2% tax
+    printf("Net Salary = %.2f\n", net);
+    return 0;
+}
