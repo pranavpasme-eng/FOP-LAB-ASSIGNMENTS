@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+long long fact(int n){long long f=1;for(int i=1;i<=n;i++)f*=i;return f;}
+int isPrime(int n){if(n<2)return 0;for(int i=2;i<=sqrt(n);i++)if(n%i==0)return 0;return 1;}
+void primeFactors(int n){while(n%2==0){printf("2 ");n/=2;}for(int i=3;i<=sqrt(n);i+=2)while(n%i==0){printf("%d ",i);n/=i;}if(n>2)printf("%d",n);}
+int main(){
+    int ch,n;
+    do{
+        printf("\n1.Sqrt 2.Square 3.Cube 4.Prime? 5.Fact 6.PrimeFactors 7.Exit\nChoice: ");
+        scanf("%d",&ch);
+        if(ch>=1&&ch<=6){printf("Enter number: ");scanf("%d",&n);}
+        switch(ch){
+            case 1: printf("=%.2f\n",sqrt(n)); break;
+            case 2: printf("=%d\n",n*n); break;
+            case 3: printf("=%d\n",n*n*n); break;
+            case 4: printf(isPrime(n)?"Prime\n":"Not Prime\n"); break;
+            case 5: printf("=%lld\n",fact(n)); break;
+            case 6: primeFactors(n); printf("\n"); break;
+            case 7: printf("Bye\n"); break;
+            default: printf("Invalid\n");
+        }
+    }while(ch!=7);
+    return 0;
+}
