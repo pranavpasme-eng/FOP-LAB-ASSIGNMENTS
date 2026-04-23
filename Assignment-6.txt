@@ -1,0 +1,22 @@
+#include <stdio.h>
+int factorial_iterative(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+int factorial_recursive(int n) {
+    if (n == 0 || n == 1)   // Base case
+        return 1;
+    else
+        return n * factorial_recursive(n - 1); // Recursive call
+}
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Factorial (Iterative) of %d = %d\n", num, factorial_iterative(num));
+    printf("Factorial (Recursive) of %d = %d\n", num, factorial_recursive(num));
+    return 0;
+}
